@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{{ url_for('static',filename='style.css' ) }}"
+		/>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>name</th>
+				<th>age</th>
+				<th>status</th>
+			</tr>
+			<tr>
+				{% for item in student %}
+				<td>{{item["name"]}}</td>
+				<td>{{item["age"]}}</td>
+				{% if item["age"] < 30%}
+				<td>young</td>
+				{%endif%} {%if item["age"] >= 30%}
+				<td>you are wise</td>
+
+				{%endif%}
+			</tr>
+			{%endfor%}
+		</table>
+		{% for i in range(num)%}
+		<div class="box"></div>
+		{% endfor%}
+
+		<!-- you can also use  elif and else but they will en in endif-->
+	</body>
+</html>
